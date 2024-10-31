@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>CarViewer</title>
+        <link rel="website icon" type="png" href="https://kappa.lol/94ci5">
+    </head>
+<body>
+    <div class="container">
+        <header>
+            <p><img src="https://kappa.lol/94ci5" alt="Логотип" class="logo"></p>
+            <button class="button" onclick="showAboutInfo()">About</button>
+            <button class="button" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Регистрация / Вход</button>
+            <button class="button" onclick="document.getElementById('deleteAccountModal').style.display='block'" style="width:auto;">Удалить аккаунт</button>
+
+
+            <div id="id01" class="modal2">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+                
+                <div class="container1">
+                    <form id="registerForm" action="check.php" class="modal2-content" method="post" onsubmit="submitForm(event, 'registerForm')">
+                        <h1 style="color: black;">Зарегистрироваться</h1>
+                        <p><h3 style="color: black;">Пожалуйста, заполните эту форму, чтобы создать учетную запись</h3></p>
+                        <hr>
+                        <input type="text" class="form-control" name="login" id="login" placeholder="Введите логин(От 5 до 90 символов)">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Введите имя(От 3 до 50 символов)">
+                        <input type="password" class="form-control" name="pass" id="pass" placeholder="Введите пароль(От 3 до 20 символов)">
+                        <div>
+                            <button class="button" type="submit">Зарегистрироваться</button>
+                        </div>
+                        <div class="clearfix">
+                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="button">Закрыть</button>
+                        </div>
+                    </form>
+                    
+                    <form id="loginForm" action="auth.php" class="modal2-content" method="post" onsubmit="submitForm(event, 'loginForm')">
+                        <h1 style="color: black;">Авторизоваться</h1>
+                        <p><h3 style="color: black;">Пожалуйста, заполните эту форму, чтобы войти в учетную запись</h3></p>
+                        <hr>
+                        <input type="text" class="form-control" name="login" id="login" placeholder="Введите логин(От 5 до 90 символов)">
+                        <input type="password" class="form-control" name="pass" id="pass" placeholder="Введите пароль(От 3 до 20 символов)">
+                        <div>
+                            <button class="button" type="submit">Авторизоваться</button>
+                        </div>
+                        <div class="clearfix">
+                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="button">Закрыть</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="deleteAccountModal" class="modal2">
+                <span onclick="document.getElementById('deleteAccountModal').style.display='none'" class="close" title="Close Modal">×</span>
+                
+                <div class="container1">
+                    <form id="deleteAccountForm" action="delete_account.php" class="modal2-content" method="post" onsubmit="submitForm(event, 'deleteAccountForm')">
+                        <h1 style="color: black;">Удалить аккаунт</h1>
+                        <p><h3 style="color: black;">Вы уверены, что хотите удалить свой аккаунт?</h3></p>
+                        <hr>
+                        <input type="text" class="form-control" name="login" id="delete_login" placeholder="Введите логин">
+                        <input type="password" class="form-control" name="confirm_pass" id="confirm_pass" placeholder="Введите пароль для подтверждения">
+                        <div>
+                            <button class="button" type="submit">Удалить</button>
+                        </div>
+                        <div class="clearfix">
+                            <button type="button" onclick="document.getElementById('deleteAccountModal').style.display='none'" class="button">Закрыть</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+            <div id="footer"></div>
+            <br><h4>Ниже будет появляться информация о статусе регистрации (после нажатия кнопки "Зарегистрироваться" или "Авторизоваться", требуется нажать кнопку "Закрыть")</h3>
+            <h3><div id="messageReg"></div></h3>
+            <h3><div id="messageBox"></div></h3>
+            <div id="aboutInfo">
+                <h2>Баженов Никита Евгеньевич</h2>
+                <p><img src="https://kappa.lol/jjJMo" width="200" class="about"></p>
+                <p>Студент 1-го курса Воронежского Государственного Университета, ФКН, ИСИТ, группа №2.1</p>
+                <h3>Описание сайта</h3>
+                <p>На данном сайте вы можете прочитать обзор машины BMW M4 в кузове f82</p>
+                <h3>Внешние ресурсы</h3>
+                <ul>
+                    <a href="https://autospot.ru/brands/bmw/m4/coupe/" target="_blank">
+                        <button class="button">Сторонний сайт с обзором</button>
+                    </a><br>
+                    <a href="https://auto.ru/catalog/cars/bmw/m4/20106321/20106327/specifications/20106327__20700250/?utm_referrer=https%3A%2F%2Fwww.google.com%2F"HTML ссылка target="_blank">
+                        <button class="button">Технические характеристики</button>
+                    </a><br>
+                </ul>
+                <h3>Обратная связь</h3>
+                <ul>
+                    <a href="https://vk.com/nikitabzh" target="_blank">
+                        <button class="button">ВКонтакте</button>
+                    </a><br>
+                    <a href="mailto:nikita.bazghenov@gmail.com?subject="HTML ссылка target="_blank">
+                        <button class="button">Электронная почта</button>
+                    </a><br>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <section class="intro">
+                <h1><u>Обзор BMW M4 F82</u></h1>
+                <img alt="ЖЁЛТАЯ" src="https://s.auto.drom.ru/img4/catalog/photos/fullsize/bmw/m4/bmw_m4_109803.jpg" id="photo1" width="400" class="photo" onclick="openModal('photo1')">
+                <h3><p>Специалисты подразделения спортивных автомобилей M тщательно поработали над BMW 4 серии. Новые модели эстетически привлекательны, отличаются фирменным спортивным стилем и впечатляющей харизмой.</p>
+                <p>BMW M4 Competition Coupe оснащен чрезвычайно мощным битурбированным спортивным двигателем с выдающимися характеристиками, автоматической трансмиссией, опциональным механизмом интеллектуального полного привода, активным дифференциалом и рядом технологий, позаимствованных у гоночных болидов. Результатом стала непревзойденная динамика, свойственная автомобилю не только на гоночных трассах, но и в условиях повседневной эксплуатации.</p>
+                <p>BMW M440i xDrive Coupe, несколько уступает модели Competition по характеристикам отлично подходит для повседневного использования, а при необходимости способен проявить себя на треке. Автомобиль имеет привлекательный дизайн, отличается атлетичными чертами кузова и экономичностью.</p>
+                <p>Замыкает список BMW M4 Cabrio – спортивный кабриолет, подходящий как для неспешной автопрогулки с открытой крышей в хорошую погоду, так и для скоростной езды по гоночной трассе.</p>
+            </h3>
+            </section>
+            <section class="specs" class="specifications">
+                <h2>Технические характеристики</h2>
+                <ul>
+                    <p>
+                        <h3>
+                            <img alt="ХАРАКТЕРИСТИКИ" src="https://kappa.lol/poTNo" id="photo2" width="400" class="photo" onclick="openModal('photo2')">
+                            <li>Двигатель: 3,0-литровый турбонаддувный рядный шестицилиндровый</li>
+                            <li>Мощность: 431 л.с.</li>
+                            <li>Крутящий момент: 550 Нм</li>
+                            <li>Трансмиссия: 6-ступенчатая механическая или 7-ступенчатая автоматическая</li>
+                            <li>Разгон от 0 до 100 км/ч: 4,1 секунды (с автоматической коробкой передач)</li>
+                            <li>Максимальная скорость: 250 км/ч (ограничена электроникой)</li>
+                            <li>Привод: Задний</li>
+                            <li>Передние тормоза: Дисковые вентилируемые</li>
+                            <li>Задние тормоза: Дисковые вентилируемые</li>
+                            <li>Вспомогательная система: ABS (Антиблокировочная система тормозов)</li>
+                            <li>Расход топлива в городе: 12 л/100 км</li>
+                            <li>Расход топлива на шоссе: 6.9 л/100 км</li>
+                            <li>Объём топливного бака: 60 литров</li>
+                            <li>Вес: 1495 кг</li>
+                        </h3>
+                    </p>
+                </ul>
+            </section>
+            <section class="design">
+                <br><p><h2>Дизайн</h2>
+                <img src="https://kappa.lol/Edpl9" id="photo3" width="400" class="photo" onclick="openModal('photo3')">
+                <h3>
+                    <p>Новые спорт-купе и кабриолет 2021 года оснащены рядом аэродинамических элементов специальной формы, которые делают кузов автомобиля подчеркнуто атлетичным, а также улучшают динамику разгона. Основой всех оптических приборов являются светодиоды, но опционально могут быть установлены адаптивные блоки с лазерными элементами.</p>
+                    <p>Фронтальная часть отличается фирменной решеткой радиатора, выполненной в новом стиле: она значительно увеличена по высоте, а также лишена рамок. Фары головного света плавно сужаются к радиаторной решетке. Капот модели украшен особой выштамповкой, которая придает автомобилю дополнительную выразительность. Изящно выполненный передний бампер полностью соответствует общему стилю серии М.</p>
+                    <p>Уже при взгляде на фото нового BMW M4 (Competition, M440i xDrive, Cabrio) не остается сомнений в спортивном характере автомобиля. Колеса укомплектованы коваными разноразмерными дисками Double-spoke 826 M, отличающимися превосходным дизайном и полированными ободами, привлекающими мнение. На дисках расположены фирменные шины марки Michelin.</p>
+                    <p>На крыше автомобилей в кузове купе имеются аэродинамические углепластиковые ребра. Под задним бампером с правой и левой стороны расположены сдвоенные патрубки выхлопной системы.</p>
+                </h3>
+            </section>
+            <section class="interior">
+                <p><h2>Интерьер</h2></p>
+                    <h3>
+                        <img src="https://avatars.dzeninfra.ru/get-zen_doc/1706621/pub_609470c97ffcba2d9ece5b8b_6094758187bf2977fccace4c/scale_1200" id="photo4" width="400" class="photo" onclick="openModal('photo4')">
+                        <p>Внутреннее пространство спортивных версий во многом похоже на гражданские модификации БМВ 4 серии. Информативная и хорошо читаемая цифровая панель имеет размер 12,3 дюйма. </p>
+                        <p>Спортивное рулевое колесо выполнено в форме круга с тремя спицами. На руле расположены многофункциональные кнопки управления, а также клавиша запуска двигателя, выполненная в красном цвете.</p>
+                        <p>Кроме того, разработчики установили подрулевые лепестки и две красные кнопки, с помощью которых можно менять индивидуальные технические настройки спорткара. Передняя панель, а также центральная консоль автомобиля отделаны полированным алюминием (опционально доступна отделка карбоном). </p>
+                        <p>По центру торпеды БМВ М4 размещена система мультимедиа с 10,25" дисплеем и функцией поддержки интерфейсов для мобильных аппаратов — Android Auto и Apple CarPlay. Предусмотрено взаимодействие с облачным сервисом (BMW Maps).</p>
+                        <p>Установлены также драйверские ассистенты для максимального удобства водителя — M Driver Analyzer и M Laptimer. Если в дороге вы предпочитаете прослушивать любимую музыку, то к вашим услугам премиальная аудиосистема с безупречным звучанием — Harman/Kardon.</p>
+                        <p>Отделка салона спортивных купе и кабриолета отличается красотой и роскошью, поскольку выполнена исключительно из материалов премиум-класса. Особые спортивные кресла с полноценной боковой поддержкой, предназначенные для водителя и переднего пассажира, обиты натуральной кожей Merino и безупречно эргономичны. Сиденья снабжены функцией вентиляции и множеством электрорегулировок.</p>
+                        <p>Опционально доступна установка в салоне BMW M4 карбоновых кресел M Carbon. Эти сиденья весят значительно меньше заводских (на 9,5 кг), отличаются крупными боковыми валиками, а также украшены подсвеченным логотипом.</p>
+                    </h3>
+            </section>
+            <section class="driving">
+                <h2>Вождение</h2>
+                <p><br><img src="https://avatars.dzeninfra.ru/get-zen_doc/1864855/pub_5ea92ceb65a8ef41509bea80_5eab1f8249d6c31325ad6025/scale_1200" id="photo5" width="400" class="photo" onclick="openModal('photo5')">
+                    <h3>
+                        <p>M4 F82 - это очень динамичный автомобиль, который обеспечивает азартное и увлекательное вождение.</p>
+                        <p>Превосходную устойчивость на дороге обеспечивает спортивная адаптивная подвеска с управляемыми электроникой амортизаторами. Задний подрамник прикреплен к кузовной части напрямую без эластичных элементов, что способствует повышению точности управления.</p>
+                        <p>Он имеет отзывчивое рулевое управление, мощные тормоза и отлично сбалансированное шасси.</p>
+                        <p>Передние и задние колеса спорткаров БМВ М4 оснащены высокоэффективными тормозными механизмами с разноразмерными дисками (спереди — 380 мм, сзади — 370 мм). 
+                        <p>На передней оси устанавливаются шестипоршневые суппорты, на задней — однопоршневые.</p> В качестве опции могут быть установлены карбоново-керамические диски: 400 мм — на передних колесах, 380 мм — на задних. На моделях с такими тормозами суппорты окрашиваются в золотистый цвет. </p>
+                        <p>M4 F82 также очень комфортная на дальних дистанциях.</p>
+                    </h3>
+            </section>
+
+            <section class="conclusion">
+                    <h2>Заключение</h2>
+                    <img src="https://www.bmw.ru/content/dam/bmw/marketRU/bmw_ru/images/m4_cs_1280.jpg" id="photo6" width="400" class="photo" onclick="openModal('photo6')">
+                    <h3>В общем, BMW M4 F82 представляет собой впечатляющий спортивный автомобиль, который сочетает в себе высокую производительность, передовые технологии и привлекательный дизайн, делая его привлекательным выбором для автомобилистов, ценящих динамичное вождение и стиль.</h3><p></p>
+            </section>
+        </main>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImg" class="photo">
+        </div>
+    </div>
+
+    <script>
+        function showAboutInfo() {
+            var aboutInfo = document.getElementById("aboutInfo");
+            if (aboutInfo.style.display === "none") {
+                aboutInfo.style.display = "block";
+            } else {
+                aboutInfo.style.display = "none";
+            }
+        }
+        function showMessage(message) {
+            var messageBox = document.getElementById("messageBox");
+            messageBox.textContent = message;
+        }
+    </script>
+    
+    <script src="cookies.js"></script>
+    <script src="Main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            $('#registrationForm').on('submit', function(event) {
+                event.preventDefault();
+
+                $.ajax({
+                    url: 'check.php',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        $('#statusMessage').text(response);
+                        $('#id01').hide();
+                    },
+                    error: function() {
+                        $('#statusMessage').text('Произошла ошибка при регистрации. Попробуйте еще раз.');
+                    }
+                });
+            });
+        });
+    </script>
+
+<script>
+    function submitForm(event, formId) {
+        event.preventDefault();
+        const form = document.getElementById(formId);
+        const formData = new FormData(form);
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", form.action, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                document.getElementById("messageReg").innerHTML = xhr.responseText;
+                if (formId === 'deleteAccountForm' && xhr.responseText.includes("Аккаунт успешно удален!")) {
+                    setTimeout(function() {
+                        window.location.href = '/';
+                    }, 2000);
+                }
+            }
+        };
+        xhr.send(formData);
+    }
+</script>
+</body>
+</html>

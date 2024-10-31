@@ -1,0 +1,200 @@
+.logo {
+  width: 150px;
+  height: auto;
+}
+.button {
+  background-color: #fbff00;
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 80px;
+}
+.button:hover {background-color: #ff0000}
+.button:active {
+  background-color: #00ff08;
+  box-shadow: 0 5px #ffffff;
+  transform: translateY(4px);
+}
+#aboutInfo {
+  display: none;
+  margin-top: 20px;
+  text-align: center;
+}
+.photo {
+  margin-right: 20px;
+  float: left;
+  width: 400;
+  height: auto;
+  cursor: pointer;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(255, 255, 0);
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.modal-content {
+  text-align: center;
+  margin: auto;
+  display: block;
+  width: auto;
+  max-width: 1000px;
+}
+.modal-content .image-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.modal-content img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #ffee00;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.close:hover,
+.close:focus {
+    color: #ff0000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-content, .photo {
+  animation-name: zoom;
+  animation-duration: 0.8s;
+}
+@keyframes zoom {
+  from {transform:scale(0)}; /* начальный размер */
+  to {transform:scale(1)}; /* конечный размер */
+}
+menu {
+  background-color: #000000;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+.container {
+  background-color: #a78000;
+  float: center;
+  max-width: max-content;
+  margin: auto;
+  height: auto;
+}
+header {
+  background-color: #000000;
+  color: #fff;
+  padding: 5px;
+  text-align: center;
+}
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+section {
+  border: none;
+  padding: 20px;
+  overflow: auto;
+}
+ul {
+  list-style: inside;
+  padding: 0;
+}
+li {
+  padding: 0px;
+}
+
+
+
+
+/*для кнопки регистрации*/
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #ffffff;
+}
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+.cancelbtn, .signupbtn {
+  float: none;
+  width: 50%;
+}
+.container1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.modal2 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: transparent;
+    padding-top: 50px;
+}
+.modal2-content {
+    background-color: #a78000;
+    margin: 5% auto 15% auto;
+    border: 5px solid rgb(0, 0, 0);
+    width: 45%;
+    padding: 50px;
+}
+hr {
+    border: 1px solid #000000;
+    margin-bottom: 10px;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+.status-message {
+  color: red;
+  margin: 10px 0;
+}
